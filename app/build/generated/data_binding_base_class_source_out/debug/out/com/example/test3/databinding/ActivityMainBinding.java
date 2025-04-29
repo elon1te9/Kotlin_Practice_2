@@ -28,30 +28,22 @@ public final class ActivityMainBinding implements ViewBinding {
   public final EditText edName;
 
   @NonNull
-  public final EditText edValue;
+  public final EditText edPswd;
 
   @NonNull
   public final ConstraintLayout main;
 
   @NonNull
-  public final TextView textView;
-
-  @NonNull
-  public final TextView tvBot;
-
-  @NonNull
   public final TextView tvRes;
 
   private ActivityMainBinding(@NonNull ConstraintLayout rootView, @NonNull Button btRes,
-      @NonNull EditText edName, @NonNull EditText edValue, @NonNull ConstraintLayout main,
-      @NonNull TextView textView, @NonNull TextView tvBot, @NonNull TextView tvRes) {
+      @NonNull EditText edName, @NonNull EditText edPswd, @NonNull ConstraintLayout main,
+      @NonNull TextView tvRes) {
     this.rootView = rootView;
     this.btRes = btRes;
     this.edName = edName;
-    this.edValue = edValue;
+    this.edPswd = edPswd;
     this.main = main;
-    this.textView = textView;
-    this.tvBot = tvBot;
     this.tvRes = tvRes;
   }
 
@@ -94,25 +86,13 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.edValue;
-      EditText edValue = ViewBindings.findChildViewById(rootView, id);
-      if (edValue == null) {
+      id = R.id.edPswd;
+      EditText edPswd = ViewBindings.findChildViewById(rootView, id);
+      if (edPswd == null) {
         break missingId;
       }
 
       ConstraintLayout main = (ConstraintLayout) rootView;
-
-      id = R.id.textView;
-      TextView textView = ViewBindings.findChildViewById(rootView, id);
-      if (textView == null) {
-        break missingId;
-      }
-
-      id = R.id.tvBot;
-      TextView tvBot = ViewBindings.findChildViewById(rootView, id);
-      if (tvBot == null) {
-        break missingId;
-      }
 
       id = R.id.tvRes;
       TextView tvRes = ViewBindings.findChildViewById(rootView, id);
@@ -120,8 +100,8 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMainBinding((ConstraintLayout) rootView, btRes, edName, edValue, main,
-          textView, tvBot, tvRes);
+      return new ActivityMainBinding((ConstraintLayout) rootView, btRes, edName, edPswd, main,
+          tvRes);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

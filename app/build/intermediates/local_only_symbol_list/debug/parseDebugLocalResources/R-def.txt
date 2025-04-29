@@ -12,10 +12,8 @@ font acme
 font ubuntu_light
 id btRes
 id edName
-id edValue
+id edPswd
 id main
-id textView
-id tvBot
 id tvRes
 layout activity_main
 mipmap ic_launcher

@@ -22,29 +22,36 @@ class MainActivity : AppCompatActivity() {
 
         bindingClass.btRes.setOnClickListener {
 
-            val sumZP = bindingClass.edValue.text.toString().toInt()
             val name = bindingClass.edName.text.toString()
 
-            bindingClass.tvRes.visibility = View.VISIBLE
-            bindingClass.tvRes.text = "Накинул  $name $sumZP долларов"
-
-
-            when(sumZP){
-                in 0..10000 -> {
-                    bindingClass.tvBot.visibility = View.VISIBLE
-                    bindingClass.tvBot.text = "мало"
+            when(name){
+                Constance.dvornik-> {
+                    bindingClass.tvRes.visibility = View.VISIBLE
+                    val tempText = "ваша зарплата: ${Constance.dvornik_salary}"
+                    if(bindingClass.edPswd.text.toString().toInt() == Constance.dvornik_pswd)
+                        bindingClass.tvRes.text = tempText
+                    else
+                        bindingClass.tvRes.text = "введен неверный код"
                 }
-                in 10000..1000000 -> {
-                    bindingClass.tvBot.visibility = View.VISIBLE
-                    bindingClass.tvBot.text = "норм"
+                Constance.manager-> {
+                    bindingClass.tvRes.visibility = View.VISIBLE
+                    val tempText = "ваша зарплата: ${Constance.manager_salary}"
+                    if(bindingClass.edPswd.text.toString().toInt() == Constance.manager_pswd)
+                        bindingClass.tvRes.text = tempText
+                    else
+                        bindingClass.tvRes.text = "введен неверный код"
                 }
-                in 100000..1000000 -> {
-                    bindingClass.tvBot.visibility = View.VISIBLE
-                    bindingClass.tvBot.text = "окееей"
+                Constance.director-> {
+                    bindingClass.tvRes.visibility = View.VISIBLE
+                    val tempText = "ваша зарплата: ${Constance.director_salary}"
+                    if(bindingClass.edPswd.text.toString().toInt() == Constance.director_pswd)
+                        bindingClass.tvRes.text = tempText
+                    else
+                        bindingClass.tvRes.text = "введен неверный код"
                 }
                 else-> {
-                    bindingClass.tvBot.visibility = View.VISIBLE
-                    bindingClass.tvBot.text = "не верю"
+                    bindingClass.tvRes.visibility = View.VISIBLE
+                    bindingClass.tvRes.text = "нет такого"
                 }
             }
         }
